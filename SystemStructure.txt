@@ -1,0 +1,13 @@
+Project_Root/
+├── .vscode/
+│   └── tasks.json          <-- The Control Center
+├── Master/                 <-- Code for PINNTester (OMEN)
+│   ├── src/
+│   │   ├── FastGPIO.jl     <-- The Safe Driver (GC Protected)
+│   │   ├── AD7124.jl       <-- The Protocol Layer
+│   │   ├── Diagnostics.jl  <-- The Signal Chain Check
+│   │   └── Main.jl         <-- The Command Line Interface (CLI)
+├── Slave/                  <-- Code for Emulator (Pi Zero)
+│   ├── src/
+│   │   └── Emulator.jl     <-- Combined Scanner + Emulator tool
+
