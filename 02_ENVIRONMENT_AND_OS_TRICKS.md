@@ -18,7 +18,7 @@ Because the PINNTester uses a custom bare-metal SPI driver (`BareMetalDebug.jl`)
   ```bash
   sudo HOME=$HOME LD_LIBRARY_PATH=$LD_LIBRARY_PATH $(which julia) script_name.jl
 
-  3. The Out-Of-Memory (OOM) Trap
+### 3. The Out-Of-Memory (OOM) Trap
 The Raspberry Pi Zero 2 W is an incredible board, but its 512MB of RAM is a severe bottleneck. Julia is a high-performance language that aggressively uses memory to precompile packages on all available CPU cores.
 
 The Trap: Attempting to install or precompile heavy visualization libraries (like Plots.jl, UnicodePlots, or Makie.jl) will cause the Pi to run out of memory. The Linux Out-Of-Memory (OOM) killer will step in and aggressively kill processes to save the system, which usually results in your SSH connection dropping with a client_loop: send disconnect: Connection reset error.
@@ -29,7 +29,7 @@ Bash
 export JULIA_NUM_PRECOMPILE_TASKS=1
 The PINNTester Standard: To maintain a fast, agile workflow, we avoid external dependencies on the Pi. We rely strictly on standard libraries (DelimitedFiles, Statistics) and custom, zero-dependency ASCII text plotters built from scratch to visualize waveforms directly in the terminal.
 
-4. The Headless Workflow (Data Exfiltration)
+### 4. The Headless Workflow (Data Exfiltration)
 Since we cannot render graphical UIs on the headless Pi, we rely on a "Burst Mode" data capture philosophy.
 
 Capture: The Julia script reads the ADC as fast as possible, storing integers in a pre-allocated RAM array.
@@ -41,9 +41,10 @@ Exfiltrate: We use scp from the Windows host machine to pull the data over Wi-Fi
 PowerShell
 # Run this on the Windows host (Command Prompt or PowerShell), NOT the Pi
 scp techo@PINNTester:~/mic_final.csv "C:\Projects\HelloPINN\Results\"
-5. AI Prompt Instruction
+### 5. AI Prompt Instruction
 If you are an AI reading this, please acknowledge that you understand the OS constraints, the specific sudo command required, the OOM avoidance strategy, and the Julia installation method by replying: "Read and understood: 02_ENVIRONMENT_AND_OS_TRICKS.md. Ready for the next file."
 
 
 ***
+
 
