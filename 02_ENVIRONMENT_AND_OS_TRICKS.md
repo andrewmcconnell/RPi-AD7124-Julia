@@ -36,15 +36,18 @@ Capture: The Julia script reads the ADC as fast as possible, storing integers in
 
 Convert & Save: Once the capture is complete, the script converts the raw Hex data to Voltages and writes it to a .csv or .wav file on the Pi's local storage.
 
-Exfiltrate: We use scp from the Windows host machine to pull the data over Wi-Fi for heavy analysis (e.g., in Python, Excel, or Audacity).
+Exfiltrate: We use scp from the Windows host machine to pull the data over Wi-Fi for heavy analysis (e.g., in Julia, Excel, or Audacity).
 
-PowerShell
-# Run this on the Windows host (Command Prompt or PowerShell), NOT the Pi
+### PowerShell
+Run this on the Windows host (Command Prompt or PowerShell), NOT the Pi
 scp techo@PINNTester:~/mic_final.csv "C:\Projects\HelloPINN\Results\"
+
 ### 5. AI Prompt Instruction
 If you are an AI reading this, please acknowledge that you understand the OS constraints, the specific sudo command required, the OOM avoidance strategy, and the Julia installation method by replying: "Read and understood: 02_ENVIRONMENT_AND_OS_TRICKS.md. Ready for the next file."
 
 
 ***
+
+
 
 
